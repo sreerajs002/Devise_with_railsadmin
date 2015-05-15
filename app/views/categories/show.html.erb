@@ -1,0 +1,15 @@
+
+<div class="col-xs-4 col-md-4 col-md-offset-4 col-xs-offset-1">
+<p>
+  <strong>Cname:</strong>
+  <%= @category.cname %>
+</p>
+
+<p>
+  <strong>Crating:</strong>
+  <%= @category.crating %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) , class:'btn btn-info col-xs-4 col-xs-offset-1' %>
+<%= link_to 'Back', categories_path , class:'btn btn-info col-xs-4 col-xs-offset-1' %>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="col-xs-4 col-md-4 col-md-offset-4 col-xs-offset-1">
+<p>
+  <strong>Name:</strong>
+  <%= @area.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @area.rating %>
+</p>
+
+<%= link_to 'Edit', edit_area_path(@area) , class:'btn btn-info col-xs-4 col-xs-offset-1' %>
+<%= link_to 'Back', areas_path , class:'btn btn-info  col-xs-4 col-xs-offset-1' %>
+</div>

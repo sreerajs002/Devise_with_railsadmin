@@ -1,0 +1,32 @@
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% @list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :listname %><br>
+    <%= f.text_field :listname , class:'form-control'%>
+  </div>
+ 
+  <div class="field">
+  <%=f.label:Category%><br>
+  <%= collection_select(:list ,:category_id,  Category.all,  :id,:cname,{}, :class => 'form-control')  %>
+  </div>
+  <div class="field">
+    <%=f.label:area%><br>
+    <%= collection_select(:list ,:area_id,  Area.all,  :id, :name,{}, :class => 'form-control') %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit class:'btn btn-info btn-block'%>
+  </div>
+<% end %>

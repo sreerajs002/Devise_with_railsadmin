@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<h1>Listing Lists</h1>
+ <%= link_to lists_path(format: "csv") ,class:'btn pull-right'  do %><span class="glyphicon glyphicon-save">csv</span><span class="filetypes-csv"></span><%end%>
+ <%= link_to lists_path(format: "xls"),class:'btn pull-right'  do %><span class="glyphicon glyphicon-save">xls</span><span class="filetypes-csv"></span><%end%>
+ <%= link_to lists_path(format: "pdf"),class:'btn pull-right'  do %><span class="glyphicon glyphicon-save">pdf</span><span class="filetypes-csv"></span><%end%>
+
+<table class="table table-stripped table-condensed">
+  <thead>
+    <tr>
+      <th>Listname</th>
+      <th>Category</th>
+      <th>Area</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.listname %></td>
+        <td><%= list.category.cname %></td>
+        <td><%= list.area.name %></td>
+        <td><%= link_to 'Show', list %></td>
+        <td><%= link_to 'Edit', edit_list_path(list) %></td>
+        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New List', new_list_path , class:'btn btn-info btn-block' %>
